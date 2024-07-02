@@ -14,7 +14,7 @@
 .header {
   z-index: 1;
   text-align: center;
-  color:#FFF;
+  color: #FFF;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -26,7 +26,7 @@
     display: block;
     line-height: 1;
     color: #FFF;
-    @media only screen and (min-width:$cut){
+    @media only screen and (min-width: $cut) {
       margin: 0;
       font-size: 100px;
     }
@@ -37,7 +37,7 @@
     line-height: 1;
     color: #FFF;
     margin-top: 10px;
-    @media only screen and (min-width:$cut){
+    @media only screen and (min-width: $cut) {
       font-size: 40px;
     }
   }
@@ -50,7 +50,7 @@
     text-decoration: none;
     font-size: 15px;
     margin: 10px;
-    @media only screen and (min-width:$cut){
+    @media only screen and (min-width: $cut) {
       font-size: 20px;
     }
   }
@@ -79,7 +79,7 @@
       color: $main;
       background: #FFF;
     }
-    @media only screen and (min-width:$cut) {
+    @media only screen and (min-width: $cut) {
       width: 35px;
       height: 35px;
       font-size: 35px;
@@ -98,23 +98,23 @@
   font-size: 30px;
   cursor: pointer;
   .icon {
-      position: absolute;
-      -webkit-transform-style: preserve-3d;
-      transform-style: preserve-3d;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      width: 100px;
-      height: 100px;
-      fill: #fff;
-      -webkit-animation: pulse 1.3s infinite;
-      animation: pulse 1.3s infinite;
-      &:hover {
-        color: $sec;
-      }
-      &:active {
-        color: $sec;
-      }
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    fill: #fff;
+    -webkit-animation: pulse 1.3s infinite;
+    animation: pulse 1.3s infinite;
+    &:hover {
+      color: $sec;
+    }
+    &:active {
+      color: $sec;
+    }
   }
 }
