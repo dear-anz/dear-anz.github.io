@@ -8,7 +8,6 @@
   background: transparent; /* Make background transparent */
   position: relative;
   z-index: 0; /* Ensure it stays above the particles */
-  display: none; /* Initially hidden */
   @media only screen and (min-width: $cut) {
     width: 80%;
   }

@@ -38,13 +38,5 @@ document.addEventListener("DOMContentLoaded", function() {
     const maxScroll = window.innerHeight;
     const opacity = Math.max(0, 1 - scrollPosition / maxScroll);
     header.style.opacity = opacity;
-
-    // Reveal sections when scrolling
-    const aboutSection = document.querySelector('#about');
-    const projectsSection = document.querySelector('#projects');
-    if (scrollPosition > maxScroll / 2) {
-      aboutSection.classList.remove('hidden');
-      projectsSection.classList.remove('hidden');
-    }
   });
 });
