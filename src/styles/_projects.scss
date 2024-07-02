@@ -7,6 +7,7 @@
   margin: 0 auto;
   background: transparent; /* Make background transparent */
   position: relative;
+  padding-top: 500px;
   z-index: 0; /* Ensure it stays above the particles */
   @media only screen and (min-width: $cut) {
     width: 80%;
