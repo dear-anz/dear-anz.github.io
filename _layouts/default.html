@@ -3,12 +3,13 @@
   {% include head.html %}
   <body>
       {% include header.html %}
-      <section id="about">
+      <section id="about" class="hidden">
         {% include about.html %}
       </section>
-      <section id="projects">
+      <section id="projects" class="hidden">
         {% include projects.html %}
       </section>
         {{ content }}
       {% include footer.html %}
   </body>
+</html>
