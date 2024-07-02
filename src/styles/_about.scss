@@ -4,9 +4,9 @@
   max-width: 960px;
   background: transparent; /* Make background transparent */
   position: relative;
-  padding-top: 200px;
+  padding-top: 300px;
   z-index: 0; /* Ensure it stays above the particles */
-  color: rgb(178,173,144);
+  color: rgb(227,225,116);
   @media only screen and (min-width: $cut) {
     width: 80%;
   }
