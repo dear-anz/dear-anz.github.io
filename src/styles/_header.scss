@@ -4,13 +4,16 @@
   vertical-align: bottom;
   width: 100%;
   min-height: 100vh;
+  position: fixed; /* Make it fixed */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure it stays behind other content */
   background-size: cover;
   .particles-js-canvas-el {
     width: 100% !important;
     height: 100vh !important;
   }
 }
-
 
 .header {
   z-index: 1;
@@ -23,7 +26,7 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   .centered-image {
-    width: 70vw;
+    width: 400px;
     height: auto;
   }
 
