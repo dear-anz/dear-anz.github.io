@@ -37,4 +37,13 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('#about').classList.remove('hidden');
     document.querySelector('#projects').classList.remove('hidden');
   });
+
+  // Add scroll event listener to fade out the image
+  window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const header = document.querySelector('.header');
+    const maxScroll = window.innerHeight;
+    const opacity = Math.max(0, 1 - scrollPosition / maxScroll);
+    header.style.opacity = opacity;
+  });
 });
