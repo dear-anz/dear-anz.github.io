@@ -31,13 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
     retina_detect: true
   });
 
-  // Add event listener for the down button
-  document.querySelector('.down').addEventListener('click', function() {
-    document.querySelector('.header').classList.add('hidden');
-    document.querySelector('#about').classList.remove('hidden');
-    document.querySelector('#projects').classList.remove('hidden');
-  });
-
   // Add scroll event listener to fade out the image
   window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
@@ -45,5 +38,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const maxScroll = window.innerHeight;
     const opacity = Math.max(0, 1 - scrollPosition / maxScroll);
     header.style.opacity = opacity;
+
+    // Reveal sections when scrolling
+    const aboutSection = document.querySelector('#about');
+    const projectsSection = document.querySelector('#projects');
+    if (scrollPosition > maxScroll / 2) {
+      aboutSection.classList.remove('hidden');
+      projectsSection.classList.remove('hidden');
+    }
   });
 });
