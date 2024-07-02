@@ -6,6 +6,7 @@
   position: relative;
   padding-top: 200px;
   z-index: 0; /* Ensure it stays above the particles */
+  color: rgb(178,173,144)
   @media only screen and (min-width: $cut) {
     width: 80%;
   }
