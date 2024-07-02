@@ -23,9 +23,9 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   .centered-image {
-    max-width: $cut;
+    width: 80vw;
+    max-width: 100%;
     height: auto;
-    margin-bottom: 20px;
   }
 
   .site-title {
