@@ -55,21 +55,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // Fade in projects text
     fadeOut(projects, maxScroll, maxScroll * 2);
 
-    // Get the position of the projects element
-    const projectsPosition = projects.getBoundingClientRect().bottom + window.scrollY;
+    // Get the position of the progress bar element
+    const progressBarPosition = progressBar.getBoundingClientRect().bottom + window.scrollY;
 
-    // Fade in beforeCover text
-    fadeOut(beforeCover, projectsPosition, projectsPosition + maxScroll);
-
-    // Get the position of the beforeCover element
-    const beforeCoverPosition = beforeCover.getBoundingClientRect().bottom + window.scrollY;
-
-    // Fade in cover art and progress bar
-    fadeOut(coverArt, beforeCoverPosition, beforeCoverPosition + maxScroll);
-    fadeOut(progressBar, beforeCoverPosition, beforeCoverPosition + maxScroll);
+    // Fade out elements after scrolling past the progress bar
+    if (scrollPosition > progressBarPosition) {
+      fadeOut(projects, progressBarPosition, progressBarPosition + maxScroll);
+      fadeOut(beforeCover, progressBarPosition, progressBarPosition + maxScroll);
+      fadeOut(coverArt, progressBarPosition, progressBarPosition + maxScroll);
+    }
 
     // Get the position of the cover art element
-    const coverArtPosition = beforeCoverPosition + maxScroll; // Adjusted to fit cover art
+    const coverArtPosition = beforeCover.getBoundingClientRect().bottom + window.scrollY + maxScroll; // Adjusted to fit cover art
 
     // Fade in fadeText
     fadeOut(fadeText, coverArtPosition, coverArtPosition + maxScroll);
@@ -84,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // Play button functionality
   const playButton = document.getElementById('play-button');
   const audio = document.getElementById('audio');
-  const progressBar = document.getElementById('progress-bar');
   const progress = document.getElementById('progress');
 
   playButton.addEventListener('click', function() {
