@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(beforeCover, fadeInStart_ini, fadeInEnd);
 
     fadeInStart_cover = fadeInEnd;
-    fadeInEnd_cover = fadeInStart_ini * 3;
+    fadeInEnd_cover = fadeInStart_ini * 4;
     fadeOut(coverArt, fadeInEnd, fadeInEnd_cover);
 
     // Get the position of the progress bar element
