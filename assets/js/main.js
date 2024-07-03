@@ -56,6 +56,13 @@ document.addEventListener("DOMContentLoaded", function() {
       coverArt.classList.remove('visible');
     }
 
+    // Fade in cover art when user scrolls
+    if (scrollPosition > maxScroll) {
+      coverArt.style.opacity = 1;
+    } else {
+      coverArt.style.opacity = 0;
+    }
+
     // Fade out cover art when progress bar reaches halfway up the screen
     fadeOut(coverArt, maxScroll, 2 * maxScroll);
     fadeOut(fadeText, 2 * maxScroll, 3 * maxScroll);

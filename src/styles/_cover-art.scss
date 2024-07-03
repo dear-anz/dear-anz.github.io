@@ -4,6 +4,10 @@
   z-index: 2;
   opacity: 0;
   transition: opacity 0.5s ease-out;
+  position: fixed; /* Make it fixed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   &.visible {
     opacity: 1;
   }

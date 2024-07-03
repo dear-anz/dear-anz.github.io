@@ -31,45 +31,46 @@ document.addEventListener("DOMContentLoaded", function() {
     retina_detect: true
   });
 
-window.addEventListener('scroll', function() {
-  const scrollPosition = window.scrollY;
-  const maxScroll = window.innerHeight;
+  // Add scroll event listener to fade out elements
+  window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const maxScroll = window.innerHeight;
 
-  const header = document.querySelector('.header');
-  const coverArt = document.getElementById('cover-art');
-  const fadeText = document.querySelector('.fade-text');
-  const userProjects = document.querySelectorAll('.user-projects');
-  const finalText = document.querySelector('.final-text');
+    const header = document.querySelector('.header');
+    const coverArt = document.getElementById('cover-art');
+    const fadeText = document.querySelector('.fade-text');
+    const userProjects = document.querySelectorAll('.user-projects');
+    const finalText = document.querySelector('.final-text');
 
-  const fadeOut = (element, start, end) => {
-    const opacity = Math.max(0, 1 - (scrollPosition - start) / (end - start));
-    element.style.opacity = opacity;
-  };
+    const fadeOut = (element, start, end) => {
+      const opacity = Math.max(0, 1 - (scrollPosition - start) / (end - start));
+      element.style.opacity = opacity;
+    };
 
-  // Fade out header image when bottom of the page is reached
-  if (scrollPosition > maxScroll) {
-    header.style.opacity = 0;
-    coverArt.classList.add('visible');
-  } else {
-    header.style.opacity = 1;
-    coverArt.classList.remove('visible');
-  }
+    // Fade out header image when bottom of the page is reached
+    if (scrollPosition > maxScroll) {
+      header.style.opacity = 0;
+      coverArt.classList.add('visible');
+    } else {
+      header.style.opacity = 1;
+      coverArt.classList.remove('visible');
+    }
 
-  // Fade in cover art when user scrolls
-  if (scrollPosition > maxScroll) {
-    coverArt.style.opacity = 1;
-  } else {
-    coverArt.style.opacity = 0;
-  }
+    // Fade in cover art when user scrolls
+    if (scrollPosition > maxScroll) {
+      coverArt.style.opacity = 1;
+    } else {
+      coverArt.style.opacity = 0;
+    }
 
-  // Fade out cover art when progress bar reaches halfway up the screen
-  fadeOut(coverArt, maxScroll, 2 * maxScroll);
-  fadeOut(fadeText, 2 * maxScroll, 3 * maxScroll);
-  userProjects.forEach((project, index) => {
-    fadeOut(project, (3 + index) * maxScroll, (4 + index) * maxScroll);
+    // Fade out cover art when progress bar reaches halfway up the screen
+    fadeOut(coverArt, maxScroll, 2 * maxScroll);
+    fadeOut(fadeText, 2 * maxScroll, 3 * maxScroll);
+    userProjects.forEach((project, index) => {
+      fadeOut(project, (3 + index) * maxScroll, (4 + index) * maxScroll);
+    });
+    fadeOut(finalText, (3 + userProjects.length) * maxScroll, (4 + userProjects.length) * maxScroll);
   });
-  fadeOut(finalText, (3 + userProjects.length) * maxScroll, (4 + userProjects.length) * maxScroll);
-});
 
   // Play button functionality
   const playButton = document.getElementById('play-button');
