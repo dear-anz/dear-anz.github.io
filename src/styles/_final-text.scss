@@ -7,12 +7,12 @@
 
 #fade-in-image {
   opacity: 0;
-  transition: opacity 3s ease-out;
   display: block;
   margin: 20px auto;
   max-width: 100%;
   height: auto;
   &.visible {
+    transition: opacity 3s ease-out;
     opacity: 1;
   }
 }
