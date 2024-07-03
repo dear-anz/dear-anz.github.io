@@ -31,21 +31,27 @@ document.addEventListener("DOMContentLoaded", function() {
     retina_detect: true
   });
 
-  // Add scroll event listener to fade out the image
+  // Add scroll event listener to fade out elements
   window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
-    const header = document.querySelector('.header');
-    const coverArtWrapper = document.getElementById('cover-art-wrapper');
-    const coverArt = document.getElementById('cover-art');
     const maxScroll = window.innerHeight;
-    const opacity = Math.max(0, 1 - scrollPosition / maxScroll);
-    header.style.opacity = opacity;
 
-    if (scrollPosition > maxScroll) {
-      coverArtWrapper.style.opacity = 0;
-    } else {
-      coverArtWrapper.style.opacity = 1;
-    }
+    const coverArt = document.getElementById('cover-art');
+    const fadeText = document.querySelector('.fade-text');
+    const userProjects = document.querySelectorAll('.user-projects');
+    const finalText = document.querySelector('.final-text');
+
+    const fadeOut = (element, start, end) => {
+      const opacity = Math.max(0, 1 - (scrollPosition - start) / (end - start));
+      element.style.opacity = opacity;
+    };
+
+    fadeOut(coverArt, 0, maxScroll);
+    fadeOut(fadeText, maxScroll, 2 * maxScroll);
+    userProjects.forEach((project, index) => {
+      fadeOut(project, (2 + index) * maxScroll, (3 + index) * maxScroll);
+    });
+    fadeOut(finalText, (2 + userProjects.length) * maxScroll, (3 + userProjects.length) * maxScroll);
   });
 
   // Play button functionality
@@ -67,5 +73,13 @@ document.addEventListener("DOMContentLoaded", function() {
   audio.addEventListener('timeupdate', function() {
     const percentage = (audio.currentTime / audio.duration) * 100;
     progress.style.width = percentage + '%';
+  });
+
+  // Final button functionality
+  const finalButton = document.getElementById('final-button');
+  finalButton.addEventListener('click', function() {
+    audio.pause();
+    audio.src = '/images/songs/photograph.mp3';
+    audio.play();
   });
 });

@@ -14,14 +14,6 @@
   }
 }
 
-#cover-art-wrapper {
-  position: relative;
-  height: 100vh; /* Full viewport height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #cover-art {
   text-align: center;
   color: #FFF;
@@ -67,9 +59,17 @@
   }
 }
 
+.fade-text, .final-text {
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
 .user-projects {
   margin: 20px auto;
   padding-top: 600px;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
   img {
     max-width: 100%;
     height: auto;
