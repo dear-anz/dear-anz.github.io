@@ -30,6 +30,21 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     retina_detect: true
   });
+  // Add scroll event listener to fade out the image
+  window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const header = document.querySelector('.header');
+    const coverArt = document.getElementById('cover-art');
+    const maxScroll = window.innerHeight;
+    const opacity = Math.max(0, 1 - scrollPosition / maxScroll);
+    header.style.opacity = opacity;
+
+    if (opacity === 0) {
+      coverArt.classList.add('visible');
+    } else {
+      coverArt.classList.remove('visible');
+    }
+  });
 
   // Play button functionality
   const playButton = document.getElementById('play-button');
