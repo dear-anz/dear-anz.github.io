@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const fadeText = document.querySelector('.fade-text');
     const finalText = document.querySelector('.final-text');
     const progressBar = document.getElementById('progress-bar');
+    const projects = document.getElementById('projects');
 
     const fadeOut = (element, start, end) => {
       const opacity = Math.max(0, 1 - (scrollPosition - start) / (end - start));
@@ -52,9 +53,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Display projects text
     if (scrollPosition > maxScroll) {
-      document.getElementById('projects').style.opacity = 1;
+      projects.style.opacity = 1;
     } else {
-      document.getElementById('projects').style.opacity = 0;
+      projects.style.opacity = 0;
+    }
+
+    // Get the position of the projects element
+    const projectsPosition = projects.getBoundingClientRect().bottom + window.scrollY;
+
+    // Display fade text after projects text is passed
+    if (scrollPosition > projectsPosition) {
+      fadeText.classList.add('fade-in');
+    } else {
+      fadeText.classList.remove('fade-in');
     }
 
     // Get the position of the fade-text element
@@ -67,13 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
       coverArt.classList.remove('fade-in');
       coverArt.classList.add('fade-out');
-    }
-
-    // Display fade text only after cover art has faded out
-    if (scrollPosition > maxScroll * 2) {
-      fadeText.classList.add('fade-in');
-    } else {
-      fadeText.classList.remove('fade-in');
     }
 
     // Display final text when user scrolls past progress bar by 20px
