@@ -1,8 +1,5 @@
-.fade-text {
+#fade-text {
   text-align: center;
   opacity: 0; // Initially hidden
   transition: opacity 3s ease-out;
-  &.fade-in {
-    opacity: 1;
-  }
 }

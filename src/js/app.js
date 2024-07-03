@@ -37,11 +37,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const maxScroll = window.innerHeight;
 
     const header = document.querySelector('.header');
+    const projects = document.getElementById('projects');
+    const beforeCover = document.getElementById('before-cover');
     const coverArt = document.getElementById('cover-art');
+    const progressBar = document.getElementById('progress-bar');
     const fadeText = document.getElementById('fade-text');
     const finalText = document.querySelector('.final-text');
-    const progressBar = document.getElementById('progress-bar');
-    const projects = document.getElementById('projects');
 
     const fadeOut = (element, start, end) => {
       const opacity = Math.max(0, 1 - (scrollPosition - start) / (end - start));
@@ -51,41 +52,33 @@ document.addEventListener("DOMContentLoaded", function() {
     // Fade out header image
     fadeOut(header, 0, maxScroll);
 
-    // Display projects text
-    if (scrollPosition > maxScroll) {
-      projects.style.opacity = 1;
-    } else {
-      projects.style.opacity = 0;
-    }
+    // Fade in projects text
+    fadeOut(projects, maxScroll, maxScroll * 2);
 
     // Get the position of the projects element
     const projectsPosition = projects.getBoundingClientRect().bottom + window.scrollY;
 
-    // Display fade text after projects text is passed
-    if (scrollPosition > projectsPosition) {
-      fadeText.classList.add('fade-in');
-    } else {
-      fadeText.classList.remove('fade-in');
-    }
+    // Fade in beforeCover text
+    fadeOut(beforeCover, projectsPosition, projectsPosition + maxScroll);
 
-    // Get the position of the fade-text element
+    // Get the position of the beforeCover element
+    const beforeCoverPosition = beforeCover.getBoundingClientRect().bottom + window.scrollY;
+
+    // Fade in cover art and progress bar
+    fadeOut(coverArt, beforeCoverPosition, beforeCoverPosition + maxScroll);
+    fadeOut(progressBar, beforeCoverPosition, beforeCoverPosition + maxScroll);
+
+    // Get the position of the cover art element
+    const coverArtPosition = coverArt.getBoundingClientRect().bottom + window.scrollY;
+
+    // Fade in fadeText
+    fadeOut(fadeText, coverArtPosition, coverArtPosition + maxScroll);
+
+    // Get the position of the fadeText element
     const fadeTextPosition = fadeText.getBoundingClientRect().bottom + window.scrollY;
 
-    // Fade in cover art after fade-text is passed
-    if (scrollPosition > fadeTextPosition) {
-      coverArt.classList.add('fade-in');
-      coverArt.classList.remove('fade-out');
-    } else {
-      coverArt.classList.remove('fade-in');
-      coverArt.classList.add('fade-out');
-    }
-
-    // Display final text when user scrolls past progress bar by 20px
-    if (scrollPosition > progressBar.offsetTop + 20) {
-      finalText.style.opacity = 1;
-    } else {
-      finalText.style.opacity = 0;
-    }
+    // Fade in finalText
+    fadeOut(finalText, fadeTextPosition, fadeTextPosition + maxScroll);
   });
 
   // Play button functionality
