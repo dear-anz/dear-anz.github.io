@@ -9,11 +9,11 @@
   transform: translate(-50%, -50%);
   transition: opacity 3s ease-out;
   &.fade-in {
-    animation: fadeIn 3s forwards;
+    opacity: 1;
     z-index: 2; /* Higher z-index when visible */
   }
   &.fade-out {
-    animation: fadeOut 3s forwards;
+    opacity: 0;
   }
   .cover-art-image {
     width: 300px;

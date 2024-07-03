@@ -3,6 +3,6 @@
   opacity: 0; // Initially hidden
   transition: opacity 3s ease-out;
   &.fade-in {
-    animation: fadeIn 3s forwards;
+    opacity: 1;
   }
 }
