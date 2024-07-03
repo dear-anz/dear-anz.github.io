@@ -39,37 +39,46 @@ document.addEventListener("DOMContentLoaded", function() {
     const header = document.querySelector('.header');
     const coverArt = document.getElementById('cover-art');
     const fadeText = document.querySelector('.fade-text');
-    const userProjects = document.querySelectorAll('.user-projects');
+    const finalText = document.querySelector('.final-text');
+    const progressBar = document.getElementById('progress-bar');
 
     const fadeOut = (element, start, end) => {
       const opacity = Math.max(0, 1 - (scrollPosition - start) / (end - start));
       element.style.opacity = opacity;
     };
 
-    // Fade out header image when bottom of the page is reached
+    // Fade out header image
+    fadeOut(header, 0, maxScroll);
+
+    // Display projects text
     if (scrollPosition > maxScroll) {
-      header.style.opacity = 0;
+      document.getElementById('projects').style.opacity = 1;
+    } else {
+      document.getElementById('projects').style.opacity = 0;
+    }
+
+    // Display fade text
+    if (scrollPosition > maxScroll * 1.5) {
+      fadeText.style.opacity = 1;
+    } else {
+      fadeText.style.opacity = 0;
+    }
+
+    // Fade in cover art
+    if (scrollPosition > maxScroll * 2) {
       coverArt.classList.add('visible');
       coverArt.classList.remove('hidden');
     } else {
-      header.style.opacity = 1;
       coverArt.classList.remove('visible');
       coverArt.classList.add('hidden');
     }
 
-    // Fade in cover art when user scrolls
-    if (scrollPosition > maxScroll) {
-      coverArt.style.opacity = 1;
+    // Display final text when user scrolls past progress bar by 20px
+    if (scrollPosition > progressBar.offsetTop + 20) {
+      finalText.style.opacity = 1;
     } else {
-      coverArt.style.opacity = 0;
+      finalText.style.opacity = 0;
     }
-
-    // Fade out cover art when progress bar reaches halfway up the screen
-    fadeOut(coverArt, maxScroll, 2 * maxScroll);
-    fadeOut(fadeText, 2 * maxScroll, 3 * maxScroll);
-    userProjects.forEach((project, index) => {
-      fadeOut(project, (3 + index) * maxScroll, (4 + index) * maxScroll);
-    });
   });
 
   // Play button functionality
