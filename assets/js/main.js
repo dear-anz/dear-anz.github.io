@@ -51,9 +51,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (scrollPosition > maxScroll) {
       header.style.opacity = 0;
       coverArt.classList.add('visible');
+      coverArt.classList.remove('hidden');
     } else {
       header.style.opacity = 1;
       coverArt.classList.remove('visible');
+      coverArt.classList.add('hidden');
     }
 
     // Fade in cover art when user scrolls
