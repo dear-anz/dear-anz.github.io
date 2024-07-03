@@ -53,23 +53,28 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(header, 0, maxScroll);
 
     // Fade in projects text
-    fadeOut(projects, maxScroll, maxScroll * 2);
+    const fadeInStart = maxScroll
+    fadeInEnd = maxScroll * 2
+    fadeOut(projects, fadeInStart, fadeInEnd);
+    fadeOut(beforeCover, fadeInStart, fadeInEnd);
+    fadeOut(coverArt, fadeInStart, fadeInEnd);
 
     // Get the position of the progress bar element
     const progressBarPosition = progressBar.getBoundingClientRect().bottom + window.scrollY;
 
-    // Fade out elements after scrolling past the progress bar with a 100px buffer
-    if (scrollPosition > progressBarPosition + 100) {
-      fadeOut(projects, progressBarPosition + 100, progressBarPosition + maxScroll + 100);
-      fadeOut(beforeCover, progressBarPosition + 100, progressBarPosition + maxScroll + 100);
-      fadeOut(coverArt, progressBarPosition + 100, progressBarPosition + maxScroll + 100);
+    // Fade out elements after scrolling past the progress bar with a 300px buffer
+    const buffer = 500
+    if (scrollPosition > progressBarPosition + buffer) {
+      fadeOut(projects, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
+      fadeOut(beforeCover, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
+      fadeOut(coverArt, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
     }
 
     // Get the position of the cover art element
-    const coverArtPosition = beforeCover.getBoundingClientRect().bottom + window.scrollY + maxScroll; // Adjusted to fit cover art
+    const start_next_text = progressBar.getBoundingClientRect().bottom + window.scrollY + maxScroll + buffer; // Adjusted to fit cover art
 
     // Fade in fadeText
-    fadeOut(fadeText, coverArtPosition, coverArtPosition + maxScroll);
+    fadeOut(fadeText, start_next_text, start_next_text + maxScroll);
 
     // Get the position of the fadeText element
     const fadeTextPosition = fadeText.getBoundingClientRect().bottom + window.scrollY;

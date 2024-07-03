@@ -2,9 +2,7 @@
   text-align: center;
   color: #FFF;
   z-index: 1; /* Lower z-index to send it behind */
-  opacity: 0; /* Initially hidden */
   position: relative; /* Change to relative */
-  transition: opacity 3s ease-out;
   .cover-art-image {
     width: 300px;
     height: auto;
