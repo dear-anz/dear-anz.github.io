@@ -54,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Fade in projects text
     fadeOut(projects, maxScroll, maxScroll * 2);
+    fadeOut(beforeCover, maxScroll, maxScroll * 2)
+    fadeOut(coverArt, maxScroll, maxScroll*2)
 
     // Get the position of the progress bar element
     const progressBarPosition = progressBar.getBoundingClientRect().bottom + window.scrollY;
