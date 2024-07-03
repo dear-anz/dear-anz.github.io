@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const progress = document.getElementById('progress');
 
   playButton.addEventListener('click', function() {
-  	audio.src = '/images/songs/think_of_me.mp3'
     if (audio.paused) {
       audio.play();
       playButton.innerHTML = '<i class="fa fa-pause"></i>';
