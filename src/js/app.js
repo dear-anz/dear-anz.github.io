@@ -59,17 +59,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressBarPosition = progressBar.getBoundingClientRect().bottom + window.scrollY;
 
     // Fade out elements after scrolling past the progress bar with a 100px buffer
-    if (scrollPosition > progressBarPosition + 100) {
-      fadeOut(projects, progressBarPosition + 100, progressBarPosition + maxScroll + 100);
-      fadeOut(beforeCover, progressBarPosition + 100, progressBarPosition + maxScroll + 100);
-      fadeOut(coverArt, progressBarPosition + 100, progressBarPosition + maxScroll + 100);
+    if (scrollPosition > progressBarPosition + 200) {
+      fadeOut(projects, progressBarPosition + 200, progressBarPosition + maxScroll + 200);
+      fadeOut(beforeCover, progressBarPosition + 200, progressBarPosition + maxScroll + 200);
+      fadeOut(coverArt, progressBarPosition + 200, progressBarPosition + maxScroll + 200);
     }
 
     // Get the position of the cover art element
-    const coverArtPosition = beforeCover.getBoundingClientRect().bottom + window.scrollY + maxScroll; // Adjusted to fit cover art
+    const start_next_text = progressBar.getBoundingClientRect().bottom + window.scrollY + maxScroll+200; // Adjusted to fit cover art
 
     // Fade in fadeText
-    fadeOut(fadeText, coverArtPosition, coverArtPosition + maxScroll);
+    fadeOut(fadeText, start_next_text, start_next_text + maxScroll);
 
     // Get the position of the fadeText element
     const fadeTextPosition = fadeText.getBoundingClientRect().bottom + window.scrollY;
