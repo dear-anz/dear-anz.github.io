@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(progressBar, beforeCoverPosition, beforeCoverPosition + maxScroll);
 
     // Get the position of the cover art element
-    const coverArtPosition = coverArt.getBoundingClientRect().bottom + window.scrollY;
+    const coverArtPosition = beforeCoverPosition + maxScroll; // Adjusted to fit cover art
 
     // Fade in fadeText
     fadeOut(fadeText, coverArtPosition, coverArtPosition + maxScroll);
