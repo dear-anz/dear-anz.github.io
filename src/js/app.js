@@ -57,8 +57,11 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById('projects').style.opacity = 0;
     }
 
-    // Fade in cover art
-    if (scrollPosition > maxScroll * 1.5 && scrollPosition <= maxScroll * 2) {
+    // Get the position of the fade-text element
+    const fadeTextPosition = fadeText.getBoundingClientRect().bottom + window.scrollY;
+
+    // Fade in cover art after fade-text is passed
+    if (scrollPosition > fadeTextPosition) {
       coverArt.classList.add('fade-in');
       coverArt.classList.remove('fade-out');
     } else {
