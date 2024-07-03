@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Fade in cover art
-    if (scrollPosition > maxScroll * 1.5) {
+    if (scrollPosition > maxScroll * 1.5 && scrollPosition <= maxScroll * 2) {
       coverArt.classList.add('visible');
       coverArt.classList.remove('hidden');
     } else {
@@ -66,10 +66,8 @@ document.addEventListener("DOMContentLoaded", function() {
       coverArt.classList.add('hidden');
     }
 
-    // Fade out cover art and display fade text
+    // Display fade text only after cover art has faded out
     if (scrollPosition > maxScroll * 2) {
-      coverArt.classList.remove('visible');
-      coverArt.classList.add('hidden');
       fadeText.style.opacity = 1;
     } else {
       fadeText.style.opacity = 0;
