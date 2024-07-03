@@ -13,20 +13,21 @@
     width: 80%;
   }
 }
+
+#cover-art-wrapper {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #cover-art {
-  position: absolute;
-  padding-top: 200px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
   color: #FFF;
   z-index: 2;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s ease-out;
-  &.visible {
-    opacity: 1;
-  }
   .cover-art-image {
     width: 300px;
     height: auto;
@@ -68,6 +69,7 @@
 
 .user-projects {
   margin: 20px auto;
+  padding-top: 600px;
   img {
     max-width: 100%;
     height: auto;

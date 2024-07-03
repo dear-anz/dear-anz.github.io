@@ -30,19 +30,21 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     retina_detect: true
   });
+
   // Add scroll event listener to fade out the image
   window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
     const header = document.querySelector('.header');
+    const coverArtWrapper = document.getElementById('cover-art-wrapper');
     const coverArt = document.getElementById('cover-art');
     const maxScroll = window.innerHeight;
     const opacity = Math.max(0, 1 - scrollPosition / maxScroll);
     header.style.opacity = opacity;
 
-    if (opacity === 0) {
-      coverArt.classList.add('visible');
+    if (scrollPosition > maxScroll) {
+      coverArtWrapper.style.opacity = 0;
     } else {
-      coverArt.classList.remove('visible');
+      coverArtWrapper.style.opacity = 1;
     }
   });
 
@@ -55,10 +57,10 @@ document.addEventListener("DOMContentLoaded", function() {
   playButton.addEventListener('click', function() {
     if (audio.paused) {
       audio.play();
-      playButton.textContent = 'Pause';
+      playButton.innerHTML = '<i class="fa fa-pause"></i>';
     } else {
       audio.pause();
-      playButton.textContent = 'Play';
+      playButton.innerHTML = '<i class="fa fa-play"></i>';
     }
   });
 
