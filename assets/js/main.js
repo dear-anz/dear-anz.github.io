@@ -71,13 +71,10 @@ document.addEventListener("DOMContentLoaded", function() {
     //const start_next_text = progressBar.getBoundingClientRect().bottom + window.scrollY + fadeInEnd_cover + buffer; // Adjusted to fit cover art
 
     // Fade in fadeText
-    fadeOut(fadeText, fadeInEnd_cover + 500, fadeInEnd_cover + maxScroll);
-
-    // Get the position of the fadeText element
-    const fadeTextPosition = fadeText.getBoundingClientRect().bottom + window.scrollY;
+    fadeOut(fadeText, fadeInEnd_cover + maxScroll * 2, fadeInEnd_cover + maxScroll * 3);
 
     // Fade in finalText
-    fadeOut(finalText, fadeInEnd_cover + maxScroll, fadeInEnd_cover + maxScroll*2);
+    fadeOut(finalText, fadeInEnd_cover + maxScroll * 3, fadeInEnd_cover + maxScroll * 4);
   });
 
   // Play button functionality
