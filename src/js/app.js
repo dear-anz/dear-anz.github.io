@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(beforeCover, fadeInStart_ini, fadeInEnd);
 
     fadeInStart_cover = fadeInEnd + maxScroll * 2;
-    fadeInEnd_cover = fadeInStart_cover + maxScroll * 3
+    fadeInEnd_cover = fadeInStart_cover + maxScroll * 2.5
     fadeOut(coverArt, fadeInEnd, fadeInEnd_cover);
     fadeOut(songInfo, fadeInEnd, fadeInEnd_cover);
 
@@ -73,9 +73,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Fade in fadeText
     fadeOut(fadeText, start_next_text, start_next_text + maxScroll * 2);
 
+    const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY + start_next_text
     // Fade in finalText
-    fadeOut(finalText, start_next_text + maxScroll * 3, start_next_text + maxScroll * 5);
-    finalText.style.opacity = 1;
+    fadeOut(finalText, final_text_start + maxScroll, final_text_start + maxScroll * 3);
   });
 
   // Play button functionality
