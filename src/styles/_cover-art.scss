@@ -1,7 +1,7 @@
 #cover-art {
   text-align: center;
   color: #FFF;
-  z-index: 2;
+  z-index: 1; /* Lower z-index to send it behind */
   opacity: 0;
   transition: opacity 3s ease-out;
   position: fixed; /* Make it fixed */
@@ -10,6 +10,7 @@
   transform: translate(-50%, -50%);
   &.visible {
     opacity: 1;
+    z-index: 2; /* Higher z-index when visible */
   }
   .cover-art-image {
     width: 300px;

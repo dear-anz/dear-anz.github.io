@@ -1,6 +1,8 @@
 .final-text {
   text-align: center;
   opacity: 1;
+  z-index: 3; /* Ensure it is above cover-art */
+  position: relative; /* Ensure z-index works */
 }
 
 #fade-in-image {
