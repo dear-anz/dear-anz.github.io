@@ -2,11 +2,8 @@
   text-align: center;
   color: #FFF;
   z-index: 1; /* Lower z-index to send it behind */
-  opacity: 0;
-  position: absolute; /* Change to absolute */
-  top: 0; /* Start at the top of its container */
-  left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
+  opacity: 0; /* Initially hidden */
+  position: relative; /* Change to relative */
   transition: opacity 3s ease-out;
   .cover-art-image {
     width: 300px;
