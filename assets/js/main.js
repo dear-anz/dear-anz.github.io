@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(beforeCover, fadeInStart_ini, fadeInEnd);
 
     fadeInStart_cover = fadeInEnd + maxScroll * 2;
-    fadeInEnd_cover = fadeInStart_cover + maxScroll * 5
+    fadeInEnd_cover = fadeInStart_cover + maxScroll * 3.5
     fadeOut(coverArt, fadeInEnd, fadeInEnd_cover);
     fadeOut(songInfo, fadeInEnd, fadeInEnd_cover);
 
@@ -71,10 +71,10 @@ document.addEventListener("DOMContentLoaded", function() {
     //const start_next_text = progressBar.getBoundingClientRect().bottom + window.scrollY + fadeInEnd_cover + buffer; // Adjusted to fit cover art
 
     // Fade in fadeText
-    fadeOut(fadeText, fadeInEnd_cover + maxScroll * 2, fadeInEnd_cover + maxScroll * 3);
+    fadeOut(fadeText, fadeInEnd_cover + maxScroll * 5, fadeInEnd_cover + maxScroll * 3);
 
     // Fade in finalText
-    fadeOut(finalText, fadeInEnd_cover + maxScroll * 3, fadeInEnd_cover + maxScroll * 4);
+    fadeOut(finalText, fadeInEnd_cover + maxScroll * 6, fadeInEnd_cover + maxScroll * 4);
   });
 
   // Play button functionality
