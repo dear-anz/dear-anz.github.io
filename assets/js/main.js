@@ -97,9 +97,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Final button functionality
   const finalButton = document.getElementById('final-button');
+  const fadeInImage = document.getElementById('fade-in-image');
+  
   finalButton.addEventListener('click', function() {
     audio.pause();
     audio.src = '/images/songs/photograph.mp3';
     audio.play();
+    
+    // Fade in the image
+    fadeInImage.classList.add('visible');
   });
 });
