@@ -105,9 +105,18 @@
 }
 
 #cover-art {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   color: #FFF;
-  margin-top: 50px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  &.visible {
+    opacity: 1;
+  }
   .cover-art-image {
     width: 300px;
     height: auto;
@@ -141,5 +150,7 @@
         background-color: #000;
       }
     }
+  }
+}
   }
 }
