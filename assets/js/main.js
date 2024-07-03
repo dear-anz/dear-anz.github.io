@@ -57,20 +57,22 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById('projects').style.opacity = 0;
     }
 
-    // Display fade text
-    if (scrollPosition > maxScroll * 1.5) {
-      fadeText.style.opacity = 1;
-    } else {
-      fadeText.style.opacity = 0;
-    }
-
     // Fade in cover art
-    if (scrollPosition > maxScroll * 2) {
+    if (scrollPosition > maxScroll * 1.5) {
       coverArt.classList.add('visible');
       coverArt.classList.remove('hidden');
     } else {
       coverArt.classList.remove('visible');
       coverArt.classList.add('hidden');
+    }
+
+    // Fade out cover art and display fade text
+    if (scrollPosition > maxScroll * 2) {
+      coverArt.classList.remove('visible');
+      coverArt.classList.add('hidden');
+      fadeText.style.opacity = 1;
+    } else {
+      fadeText.style.opacity = 0;
     }
 
     // Display final text when user scrolls past progress bar by 20px
