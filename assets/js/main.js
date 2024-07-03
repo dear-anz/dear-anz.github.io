@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const scrollPosition = window.scrollY;
     const maxScroll = window.innerHeight;
 
+    const header = document.querySelector('.header');
     const coverArt = document.getElementById('cover-art');
     const fadeText = document.querySelector('.fade-text');
     const userProjects = document.querySelectorAll('.user-projects');
@@ -46,12 +47,22 @@ document.addEventListener("DOMContentLoaded", function() {
       element.style.opacity = opacity;
     };
 
-    fadeOut(coverArt, 0, maxScroll);
-    fadeOut(fadeText, maxScroll, 2 * maxScroll);
+    // Fade out header image when bottom of the page is reached
+    if (scrollPosition > maxScroll) {
+      header.style.opacity = 0;
+      coverArt.classList.add('visible');
+    } else {
+      header.style.opacity = 1;
+      coverArt.classList.remove('visible');
+    }
+
+    // Fade out cover art when progress bar reaches halfway up the screen
+    fadeOut(coverArt, maxScroll, 2 * maxScroll);
+    fadeOut(fadeText, 2 * maxScroll, 3 * maxScroll);
     userProjects.forEach((project, index) => {
-      fadeOut(project, (2 + index) * maxScroll, (3 + index) * maxScroll);
+      fadeOut(project, (3 + index) * maxScroll, (4 + index) * maxScroll);
     });
-    fadeOut(finalText, (2 + userProjects.length) * maxScroll, (3 + userProjects.length) * maxScroll);
+    fadeOut(finalText, (3 + userProjects.length) * maxScroll, (4 + userProjects.length) * maxScroll);
   });
 
   // Play button functionality
