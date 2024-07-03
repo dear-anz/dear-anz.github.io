@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const header = document.querySelector('.header');
     const coverArt = document.getElementById('cover-art');
-    const fadeText = document.querySelector('.fade-text');
+    const fadeText = document.getElementById('fade-text');
     const finalText = document.querySelector('.final-text');
     const progressBar = document.getElementById('progress-bar');
     const projects = document.getElementById('projects');

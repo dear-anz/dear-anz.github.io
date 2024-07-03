@@ -37,11 +37,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const maxScroll = window.innerHeight;
 
     const header = document.querySelector('.header');
+    const beforeCover = document.getElementById('before-cover');
     const coverArt = document.getElementById('cover-art');
-    const fadeText = document.querySelector('.fade-text');
+    const fadeText = document.getElementById('fade-text');
     const finalText = document.querySelector('.final-text');
     const progressBar = document.getElementById('progress-bar');
     const projects = document.getElementById('projects');
+
 
     const fadeOut = (element, start, end) => {
       const opacity = Math.max(0, 1 - (scrollPosition - start) / (end - start));
@@ -62,17 +64,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const projectsPosition = projects.getBoundingClientRect().bottom + window.scrollY;
 
     // Display fade text after projects text is passed
+    // Display fade text after projects text is passed
     if (scrollPosition > projectsPosition) {
-      fadeText.classList.add('fade-in');
+      beforeCover.classList.add('fade-in');
     } else {
-      fadeText.classList.remove('fade-in');
+      beforeCover.classList.remove('fade-in');
     }
 
-    // Get the position of the fade-text element
-    const fadeTextPosition = fadeText.getBoundingClientRect().bottom + window.scrollY;
-
-    // Fade in cover art after fade-text is passed
-    if (scrollPosition > fadeTextPosition) {
+    const beforeCoverPosition = beforeCover.getBoundingClientRect().bottom + window.scrollY;
+    
+    // Fade in cover art after beforeCover-text is passed
+    if (scrollPosition > beforeCoverPosition) {
       coverArt.classList.add('fade-in');
       coverArt.classList.remove('fade-out');
     } else {
@@ -80,12 +82,16 @@ document.addEventListener("DOMContentLoaded", function() {
       coverArt.classList.add('fade-out');
     }
 
-    // Display final text when user scrolls past progress bar by 20px
-    if (scrollPosition > progressBar.offsetTop + 20) {
-      finalText.style.opacity = 1;
+    const coverPosition = coverArt.getBoundingClientRect().bottom + window.scrollY;
+
+    if (scrollPosition > coverPosition) {
+      fadeText.classList.add('fade-in');
     } else {
-      finalText.style.opacity = 0;
+      fadeText.classList.remove('fade-in');
     }
+
+    // Get the position of the fade-text element
+    const fadeTextPosition = fadeText.getBoundingClientRect().bottom + window.scrollY;
   });
 
   // Play button functionality
