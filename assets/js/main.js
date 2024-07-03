@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(projects, fadeInStart_ini, fadeInEnd);
     fadeOut(beforeCover, fadeInStart_ini, fadeInEnd);
 
-    fadeInStart_cover = fadeInEnd;
+    fadeInStart_cover = fadeInEnd + maxScroll * 2;
     fadeInEnd_cover = fadeInStart_ini * 6
     fadeOut(coverArt, fadeInEnd, fadeInEnd_cover);
     fadeOut(songInfo, fadeInEnd, fadeInEnd_cover);
