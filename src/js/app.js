@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const beforeCover = document.getElementById('before-cover');
     const coverArt = document.getElementById('cover-art');
     const progressBar = document.getElementById('progress-bar');
+    const songInfo = document.getElementById('song-info');
     const fadeText = document.getElementById('fade-text');
     const finalText = document.querySelector('.final-text');
 
@@ -58,32 +59,22 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(projects, fadeInStart_ini, fadeInEnd);
     fadeOut(beforeCover, fadeInStart_ini, fadeInEnd);
 
-    fadeInStart_cover = fadeInEnd;
-    fadeInEnd_cover = fadeInStart_ini * 5
+    fadeInStart_cover = fadeInEnd + maxScroll * 2;
+    fadeInEnd_cover = fadeInStart_ini * 6
     fadeOut(coverArt, fadeInEnd, fadeInEnd_cover);
+    fadeOut(songInfo, fadeInEnd, fadeInEnd_cover);
 
     // Get the position of the progress bar element
     const progressBarPosition = progressBar.getBoundingClientRect().bottom + window.scrollY;
 
- //   // Fade out elements after scrolling past the progress bar with a 300px buffer
-    const buffer = 500
-  //  if (scrollPosition > progressBarPosition + buffer) {
- //     fadeOut(projects, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
- //     fadeOut(beforeCover, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
- //     fadeOut(coverArt, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
- //   }
-
     // Get the position of the cover art element
-    const start_next_text = progressBar.getBoundingClientRect().bottom + window.scrollY + fadeInEnd_cover + buffer; // Adjusted to fit cover art
+    //const start_next_text = progressBar.getBoundingClientRect().bottom + window.scrollY + fadeInEnd_cover + buffer; // Adjusted to fit cover art
 
     // Fade in fadeText
-    fadeOut(fadeText, start_next_text, start_next_text + maxScroll);
-
-    // Get the position of the fadeText element
-    const fadeTextPosition = fadeText.getBoundingClientRect().bottom + window.scrollY;
+    fadeOut(fadeText, fadeInEnd_cover + maxScroll, fadeInEnd_cover + maxScroll * 2);
 
     // Fade in finalText
-    fadeOut(finalText, fadeTextPosition, fadeTextPosition + maxScroll);
+    fadeOut(finalText, fadeInEnd_cover + maxScroll * 2, fadeInEnd_cover + maxScroll * 3);
   });
 
   // Play button functionality
