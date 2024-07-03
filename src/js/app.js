@@ -59,18 +59,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Fade in cover art
     if (scrollPosition > maxScroll * 1.5 && scrollPosition <= maxScroll * 2) {
-      coverArt.classList.add('visible');
-      coverArt.classList.remove('hidden');
+      coverArt.classList.add('fade-in');
+      coverArt.classList.remove('fade-out');
     } else {
-      coverArt.classList.remove('visible');
-      coverArt.classList.add('hidden');
+      coverArt.classList.remove('fade-in');
+      coverArt.classList.add('fade-out');
     }
 
     // Display fade text only after cover art has faded out
     if (scrollPosition > maxScroll * 2) {
-      fadeText.style.opacity = 1;
+      fadeText.classList.add('fade-in');
     } else {
-      fadeText.style.opacity = 0;
+      fadeText.classList.remove('fade-in');
     }
 
     // Display final text when user scrolls past progress bar by 20px

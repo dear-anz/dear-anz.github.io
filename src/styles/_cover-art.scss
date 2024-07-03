@@ -3,14 +3,17 @@
   color: #FFF;
   z-index: 1; /* Lower z-index to send it behind */
   opacity: 0;
-  transition: opacity 3s ease-out;
   position: fixed; /* Make it fixed */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  &.visible {
-    opacity: 1;
+  transition: opacity 3s ease-out;
+  &.fade-in {
+    animation: fadeIn 3s forwards;
     z-index: 2; /* Higher z-index when visible */
+  }
+  &.fade-out {
+    animation: fadeOut 3s forwards;
   }
   .cover-art-image {
     width: 300px;
