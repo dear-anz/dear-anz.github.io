@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressBar = document.getElementById('progress-bar');
     const songInfo = document.getElementById('song-info');
     const fadeText = document.getElementById('fade-text');
-    const finalText = document.querySelector('.final-text');
+    const finalText = document.getElementById('final-text');
 
     const fadeOut = (element, start, end) => {
       const opacity = Math.max(0, 1 - (scrollPosition - start) / (end - start));
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(beforeCover, fadeInStart_ini, fadeInEnd);
 
     fadeInStart_cover = fadeInEnd + maxScroll * 2;
-    fadeInEnd_cover = fadeInStart_ini * 6
+    fadeInEnd_cover = fadeInStart_cover + maxScroll * 5
     fadeOut(coverArt, fadeInEnd, fadeInEnd_cover);
     fadeOut(songInfo, fadeInEnd, fadeInEnd_cover);
 
