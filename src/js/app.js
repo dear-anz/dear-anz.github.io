@@ -35,8 +35,36 @@ document.addEventListener("DOMContentLoaded", function() {
   window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
     const header = document.querySelector('.header');
+    const coverArt = document.getElementById('cover-art');
     const maxScroll = window.innerHeight;
     const opacity = Math.max(0, 1 - scrollPosition / maxScroll);
     header.style.opacity = opacity;
+
+    if (opacity === 0) {
+      coverArt.classList.add('visible');
+    } else {
+      coverArt.classList.remove('visible');
+    }
+  });
+
+  // Play button functionality
+  const playButton = document.getElementById('play-button');
+  const audio = document.getElementById('audio');
+  const progressBar = document.getElementById('progress-bar');
+  const progress = document.getElementById('progress');
+
+  playButton.addEventListener('click', function() {
+    if (audio.paused) {
+      audio.play();
+      playButton.textContent = 'Pause';
+    } else {
+      audio.pause();
+      playButton.textContent = 'Play';
+    }
+  });
+
+  audio.addEventListener('timeupdate', function() {
+    const percentage = (audio.currentTime / audio.duration) * 100;
+    progress.style.width = percentage + '%';
   });
 });
