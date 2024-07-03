@@ -53,11 +53,14 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(header, 0, maxScroll);
 
     // Fade in projects text
-    const fadeInStart = maxScroll
+    const fadeInStart_ini = maxScroll
     fadeInEnd = maxScroll * 2
-    fadeOut(projects, fadeInStart, fadeInEnd);
-    fadeOut(beforeCover, fadeInStart, fadeInEnd);
-    fadeOut(coverArt, fadeInStart, fadeInEnd);
+    fadeOut(projects, fadeInStart_ini, fadeInEnd);
+    fadeOut(beforeCover, fadeInStart_ini, fadeInEnd);
+
+    fadeInStart_cover = fadeInEnd;
+    fadeInEnd_cover = fadeInStart_ini * 3;
+    fadeOut(coverArt, fadeInEnd, fadeInEnd_cover);
 
     // Get the position of the progress bar element
     const progressBarPosition = progressBar.getBoundingClientRect().bottom + window.scrollY;
