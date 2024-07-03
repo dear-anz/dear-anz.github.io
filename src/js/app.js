@@ -53,25 +53,28 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(header, 0, maxScroll);
 
     // Fade in projects text
-    const fadeInStart = maxScroll
-    fadeInEnd = maxScroll * 2
-    fadeOut(projects, fadeInStart, fadeInEnd);
-    fadeOut(beforeCover, fadeInStart, fadeInEnd);
-    fadeOut(coverArt, fadeInStart, fadeInEnd);
+    const fadeInStart_ini = maxScroll
+    fadeInEnd = maxScroll * 3
+    fadeOut(projects, fadeInStart_ini, fadeInEnd);
+    fadeOut(beforeCover, fadeInStart_ini, fadeInEnd);
+
+    fadeInStart_cover = fadeInEnd;
+    fadeInEnd_cover = fadeInStart_ini * 5
+    fadeOut(coverArt, fadeInEnd, fadeInEnd_cover);
 
     // Get the position of the progress bar element
     const progressBarPosition = progressBar.getBoundingClientRect().bottom + window.scrollY;
 
-    // Fade out elements after scrolling past the progress bar with a 300px buffer
+ //   // Fade out elements after scrolling past the progress bar with a 300px buffer
     const buffer = 500
-    if (scrollPosition > progressBarPosition + buffer) {
-      fadeOut(projects, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
-      fadeOut(beforeCover, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
-      fadeOut(coverArt, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
-    }
+  //  if (scrollPosition > progressBarPosition + buffer) {
+ //     fadeOut(projects, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
+ //     fadeOut(beforeCover, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
+ //     fadeOut(coverArt, progressBarPosition + buffer, progressBarPosition + maxScroll + buffer);
+ //   }
 
     // Get the position of the cover art element
-    const start_next_text = progressBar.getBoundingClientRect().bottom + window.scrollY + maxScroll + buffer; // Adjusted to fit cover art
+    const start_next_text = progressBar.getBoundingClientRect().bottom + window.scrollY + fadeInEnd_cover + buffer; // Adjusted to fit cover art
 
     // Fade in fadeText
     fadeOut(fadeText, start_next_text, start_next_text + maxScroll);
