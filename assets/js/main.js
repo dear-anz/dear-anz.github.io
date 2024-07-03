@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     retina_detect: true
   });
+
   // Add scroll event listener to fade out the image
   window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
@@ -55,10 +56,10 @@ document.addEventListener("DOMContentLoaded", function() {
   playButton.addEventListener('click', function() {
     if (audio.paused) {
       audio.play();
-      playButton.textContent = 'Pause';
+      playButton.innerHTML = '<i class="fa fa-pause"></i>';
     } else {
       audio.pause();
-      playButton.textContent = 'Play';
+      playButton.innerHTML = '<i class="fa fa-play"></i>';
     }
   });
 

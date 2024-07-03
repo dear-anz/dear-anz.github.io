@@ -15,7 +15,7 @@
 }
 #cover-art {
   position: absolute;
-  padding-top: 100px;
+  padding-top: 200px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -39,25 +39,28 @@
       margin-bottom: 10px;
     }
     #play-button {
-      background-color: #FFF;
-      color: #000;
+      background-color: transparent;
+      color: #FFF;
       border: none;
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 24px;
       cursor: pointer;
       border-radius: 5px;
       margin-bottom: 10px;
+      i {
+        font-size: 24px;
+      }
     }
     #progress-bar {
       width: 100%;
       height: 10px;
-      background-color: #FFF;
+      background-color: rgba(255, 255, 255, 0.3);
       border-radius: 5px;
       overflow: hidden;
       #progress {
         width: 0;
         height: 100%;
-        background-color: #000;
+        background-color: rgba(255, 255, 255, 0.7);
       }
     }
   }
@@ -65,7 +68,6 @@
 
 .user-projects {
   margin: 20px auto;
-  padding-top: 600px;
   img {
     max-width: 100%;
     height: auto;
@@ -153,4 +155,3 @@
                 border-color 0.3s ease-in;
   }
 }
-
