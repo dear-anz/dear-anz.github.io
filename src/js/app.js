@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const coverArt = document.getElementById('cover-art');
     const fadeText = document.querySelector('.fade-text');
     const userProjects = document.querySelectorAll('.user-projects');
-    const finalText = document.querySelector('.final-text');
 
     const fadeOut = (element, start, end) => {
       const opacity = Math.max(0, 1 - (scrollPosition - start) / (end - start));
@@ -71,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function() {
     userProjects.forEach((project, index) => {
       fadeOut(project, (3 + index) * maxScroll, (4 + index) * maxScroll);
     });
-    fadeOut(finalText, (3 + userProjects.length) * maxScroll, (4 + userProjects.length) * maxScroll);
   });
 
   // Play button functionality
