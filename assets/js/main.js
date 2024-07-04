@@ -86,14 +86,18 @@ document.addEventListener("DOMContentLoaded", function() {
   const progress = document.getElementById('progress');
 
   playButton.addEventListener('click', function() {
-    if (audio.paused) {
-      audio.play();
-      playButton.innerHTML = '<i class="fa fa-pause"></i>';
-    } else {
-      audio.pause();
-      playButton.innerHTML = '<i class="fa fa-play"></i>';
-    }
+      if (audio.paused || !audio.src.includes('/images/songs/think_of_me.mp3')) {
+          // If the audio is not playing or it's not 'think_of_me.mp3', switch to 'think_of_me.mp3' and play it
+          audio.src = '/images/songs/think_of_me.mp3';
+          audio.play();
+          playButton.innerHTML = '<i class="fa fa-pause"></i>';
+      } else {
+          // If the audio is playing and it's 'think_of_me.mp3', pause it
+          audio.pause();
+          playButton.innerHTML = '<i class="fa fa-play"></i>';
+      }
   });
+
 
   audio.addEventListener('timeupdate', function() {
     const percentage = (audio.currentTime / audio.duration) * 100;
@@ -105,11 +109,17 @@ document.addEventListener("DOMContentLoaded", function() {
   const fadeInImage = document.getElementById('fade-in-image');
   
   finalButton.addEventListener('click', function() {
-    audio.pause();
-    audio.src = '/images/songs/photograph.mp3';
-    audio.play();
-    
-    // Fade in the image
-    fadeInImage.classList.add('visible');
+      // Check if the audio is currently playing and it's 'photograph.mp3'
+      if (!audio.paused && audio.src.includes('/images/songs/photograph.mp3')) {
+          // If it is, pause the audio and make the image invisible
+          audio.pause();
+          fadeInImage.classList.remove('visible');
+      } else {
+          // If the audio is not playing or it's not 'photograph.mp3', switch to 'photograph.mp3' and fade in the image
+          audio.src = '/images/songs/photograph.mp3';
+          audio.play();
+          fadeInImage.classList.add('visible');
+      }
   });
+
 });

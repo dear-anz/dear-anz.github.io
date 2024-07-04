@@ -74,36 +74,12 @@
     }
   }
 }
+#title {
+  .user-details {
+    text-align: center;
+    margin: 5px auto;
+    opacity: 1;
+    padding-top: 800px;
+}
 
-.project-link {
-  display: inline-block;
-  margin: 10px 0px;
-  padding: 5px;
-  color: $main;
-  background-color: transparent;
-  border: 1px solid $main;
-  border-radius: 10px;
-  text-align: center;
-  outline: none;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease-out,
-              background-color 0.3s ease-out,
-              border-color 0.3s ease-out;
-  &:hover {
-    background-color: $purple;
-    border-color: $purple;
-    color: #fff;
-    transition: color 0.3s ease-in,
-                background-color 0.3s ease-in,
-                border-color 0.3s ease-in;
-  }
-  &:active {
-    background-color: $purple;
-    border-color: $purple;
-    color: #fff;
-    transition: color 0.3s ease-in,
-                background-color 0.3s ease-in,
-                border-color 0.3s ease-in;
-  }
 }
