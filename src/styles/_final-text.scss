@@ -5,8 +5,8 @@
     z-index: 3; /* Ensure it is above cover-art */
     position: relative; /* Ensure z-index works */
     color: #FFFFFF; // Bright white
+    padding-top: 300px;// Ensure correct padding
     h2 {
-      padding-top: 300px;// Ensure correct padding
       color: #FFFFFF;
     }
   }
