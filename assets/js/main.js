@@ -68,14 +68,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressBarPosition = progressBar.getBoundingClientRect().bottom + window.scrollY;
 
     // Get the position of the cover art element
-    const start_next_text = progressBarPosition + maxScroll + 300; // Adjusted to fit cover art
+    const start_next_text = fadeInEnd_cover + maxScroll * 2; // Adjusted to fit cover art
 
     // Fade in fadeText
     fadeOut(fadeText, start_next_text, start_next_text + maxScroll);
 
     const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY;
     // Fade in finalText
-    fadeOut(finalText, start_next_text + maxScroll * 4, start_next_text + maxScroll * 6);
+    fadeOut(finalText, start_next_text + maxScroll, start_next_text + maxScroll * 6);
     // Change opacity of finalText to 1 after fade in
     //finalText.style.opacity= 1;
   });
