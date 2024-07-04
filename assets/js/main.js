@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Fade in fadeText
     fadeOut(fadeText, start_next_text, start_next_text + maxScroll);
 
-    const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY + 100;
+    const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY;
     // Fade in finalText
     //fadeOut(finalText, final_text, start_next_text + maxScroll * 4 + 600);
     // Change opacity of finalText to 1 after fade in
