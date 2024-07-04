@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressBarPosition = progressBar.getBoundingClientRect().bottom + window.scrollY;
 
     // Get the position of the cover art element
-    const start_next_text = progressBarPosition + maxScroll +300; // Adjusted to fit cover art
+    const start_next_text = progressBarPosition + maxScroll + 300; // Adjusted to fit cover art
 
     // Fade in fadeText
     fadeOut(fadeText, start_next_text, start_next_text + maxScroll);
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //fadeOut(finalText, final_text, start_next_text + maxScroll * 4 + 600);
     // Change opacity of finalText to 1 after fade in
     if (scrollPosition > final_text_start) {
-    	finalText.style.opacity = 1;
+    	finalText.style.opacity = 100;
     }
     else {
     	finalText.style.opacity = 0;
