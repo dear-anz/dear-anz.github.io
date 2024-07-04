@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
     //fadeOut(finalText, final_text, start_next_text + maxScroll * 4 + 600);
     // Change opacity of finalText to 1 after fade in
 
-    }
   });
 
   // Play button functionality
