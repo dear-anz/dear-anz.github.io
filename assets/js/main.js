@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Fade in projects text
     const fadeInStart_ini = maxScroll + 20;
-    const fadeInEnd = maxScroll * 2;
+    const fadeInEnd = maxScroll * 2.5;
     fadeOut(projects, fadeInStart_ini, fadeInEnd);
     fadeOut(beforeCover, fadeInStart_ini, fadeInEnd);
 
