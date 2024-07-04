@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressBar = document.getElementById('progress-bar');
     const songInfo = document.getElementById('song-info');
     const fadeText = document.getElementById('fade-text');
-    const finalText = document.getElementById('final-text');
+    const finalText = document.getElementById('last');
 
     const fadeOut = (element, start, end) => {
       const opacity = Math.max(0, 1 - (scrollPosition - start) / (end - start));
@@ -68,17 +68,20 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressBarPosition = progressBar.getBoundingClientRect().bottom + window.scrollY;
 
     // Get the position of the cover art element
-    const start_next_text = progressBarPosition + fadeInEnd_cover + 600; // Adjusted to fit cover art
+    const start_next_text = progressBarPosition + maxScroll + 300; // Adjusted to fit cover art
 
     // Fade in fadeText
     fadeOut(fadeText, start_next_text, start_next_text + maxScroll);
 
-    const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY + start_next_text;
+    const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY;
     // Fade in finalText
-    fadeOut(finalText, start_next_text, start_next_text + maxScroll * 4 + 600);
+    //fadeOut(finalText, final_text, start_next_text + maxScroll * 4 + 600);
     // Change opacity of finalText to 1 after fade in
-    if (scrollPosition > start_next_text + maxScroll) {
-      finalText.style.opacity = 1;
+    if (scrollPosition > final_text_start) {
+      finalText.style.opacity = 100;
+    }
+    else {
+      finalText.style.opacity = 0;
     }
   });
 
