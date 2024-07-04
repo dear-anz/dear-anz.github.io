@@ -73,9 +73,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Fade in fadeText
     fadeOut(fadeText, start_next_text, start_next_text + maxScroll);
 
-    const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY + start_next_text
-    // Fade in finalText
-    fadeOut(finalText, start_next_text + maxScroll * 2, start_next_text + maxScroll * 8);
+	const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY;
+
+	fadeOut(finalText, final_text_start, final_text_start + maxScroll * 2);
   });
 
   // Play button functionality
