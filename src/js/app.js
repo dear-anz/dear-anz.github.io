@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const maxScroll = window.innerHeight;
 
     const header = document.querySelector('.header');
-    const projects = document.getElementById('first');
+    const projects = document.getElementById('title');
     const beforeCover = document.getElementById('before-cover');
     const coverArt = document.getElementById('cover-art');
     const progressBar = document.getElementById('progress-bar');
