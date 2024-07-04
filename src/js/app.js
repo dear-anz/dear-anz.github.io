@@ -54,13 +54,13 @@ document.addEventListener("DOMContentLoaded", function() {
     fadeOut(header, 0, maxScroll);
 
     // Fade in projects text
-    const fadeInStart_ini = maxScroll
-    fadeInEnd = maxScroll * 3
+    const fadeInStart_ini = maxScroll;
+    const fadeInEnd = maxScroll * 3;
     fadeOut(projects, fadeInStart_ini, fadeInEnd);
     fadeOut(beforeCover, fadeInStart_ini, fadeInEnd);
 
-    fadeInStart_cover = fadeInEnd + maxScroll * 2;
-    fadeInEnd_cover = fadeInStart_cover + maxScroll
+    const fadeInStart_cover = fadeInEnd + maxScroll * 2;
+    const fadeInEnd_cover = fadeInStart_cover + maxScroll;
     fadeOut(coverArt, fadeInEnd, fadeInEnd_cover);
     fadeOut(songInfo, fadeInEnd, fadeInEnd_cover);
 
@@ -73,14 +73,13 @@ document.addEventListener("DOMContentLoaded", function() {
     // Fade in fadeText
     fadeOut(fadeText, start_next_text, start_next_text + maxScroll);
 
-    const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY + start_next_text
+    const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY + start_next_text;
     // Fade in finalText
-    fadeOut(finalText, start_next_text, start_next_text + maxScroll);
+    fadeOut(finalText, start_next_text, start_next_text + maxScroll * 4 + 600);
     // Change opacity of finalText to 1 after fade in
     if (scrollPosition > start_next_text + maxScroll) {
       finalText.style.opacity = 1;
     }
-    
   });
 
   // Play button functionality
