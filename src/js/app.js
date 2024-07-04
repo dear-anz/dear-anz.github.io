@@ -75,7 +75,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const final_text_start = fadeText.getBoundingClientRect().bottom + window.scrollY + start_next_text
     // Fade in finalText
-    fadeOut(finalText, start_next_text + maxScroll * 2, start_next_text + maxScroll * 8);
+    fadeOut(finalText, start_next_text, start_next_text + maxScroll);
+    // Change opacity of finalText to 1 after fade in
+    if (scrollPosition > start_next_text + maxScroll) {
+      finalText.style.opacity = 1;
+    }
+    
   });
 
   // Play button functionality
