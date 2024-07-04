@@ -77,11 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Fade in finalText
     //fadeOut(finalText, final_text, start_next_text + maxScroll * 4 + 600);
     // Change opacity of finalText to 1 after fade in
-    if (scrollPosition > final_text_start) {
-      finalText.style.opacity = 100;
-    }
-    else {
-      finalText.style.opacity = 0;
+
     }
   });
 
