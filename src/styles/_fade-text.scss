@@ -4,6 +4,15 @@
   padding-top: 300px; // Add padding to fit cover art
   h2 {
     font-size: 1.5rem;
+    color: $main
+  }
+}
+div#fade-text-alt {
+  text-align: center;
+  opacity: 1; // Initially hidden
+  padding-top: 200px; // Add padding to fit cover art
+  h2 {
+    font-size: 1.5rem;
     color: white
   }
 }
