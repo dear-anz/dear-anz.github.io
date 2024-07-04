@@ -4,11 +4,11 @@
     opacity: 1; // Initially hidden
     z-index: 3; /* Ensure it is above cover-art */
     position: relative; /* Ensure z-index works */
-    color: #FFFFFF; // Bright white
+    color: $main; // Bright white
     padding-top: 800px;// Ensure correct padding
     h2 {
       opacity:1;
-      color: #FFFFFF;
+      color: $main;
     }
   }
   .project-link {

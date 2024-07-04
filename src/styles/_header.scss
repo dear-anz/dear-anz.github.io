@@ -28,12 +28,20 @@
   margin: 0 auto;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .centered-image {
     width: 400px;
     height: auto;
-    opacity: 1;
-    transition: opacity 0.5s ease-out;
+    opacity: 0; /* Start with the image hidden */
+    animation: fadeIn 6s ease-in-out forwards; /* 2 seconds fade-in animation */
   }
 
   .site-title {
