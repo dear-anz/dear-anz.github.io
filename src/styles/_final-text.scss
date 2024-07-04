@@ -1,6 +1,6 @@
 .final-text {
   text-align: center;
-  //opacity: 0; // Initially hidden
+  opacity: 1; // Initially hidden
   z-index: 3; /* Ensure it is above cover-art */
   position: relative; /* Ensure z-index works */
   color: #FFFFFF; // Bright white
@@ -8,7 +8,7 @@
 }
 
 #fade-in-image {
-  opacity: 0;
+  //opacity: 0;
   display: block;
   margin: 20px auto;
   max-width: 100%;
